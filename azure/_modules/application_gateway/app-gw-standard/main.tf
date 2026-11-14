@@ -63,13 +63,13 @@ resource "azurerm_application_gateway" "TerraFailAppGateway" {
     name                           = "http-listener-1"
     frontend_ip_configuration_name = "ip_config_1"
     frontend_port_name             = "front_end_port_1"
-    protocol                       = "Http"
+    protocol                       = "Https"
   }
 
   ssl_policy {
     policy_type          = "Predefined"
-    min_protocol_version = "TLSv1_1"
-    policy_name          = "AppGwSslPolicy20150501"
+    min_protocol_version = "TLSv1_2"
+    policy_name          = "AppGwSslPolicy20150501" # Drata: ssl_policy.policy_name should be set to any of AppGwSslPolicy20220101S, AppGwSslPolicy20220101
   }
 
   ssl_certificate {
